@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends SampleRobot {
     RobotDrive myRobot;
-    Joystick stick;
+    Joystick driveStick, opStick;
     Talon portMotor, starMotor, armPortMotor, armStarMotor;
     
     //Compresssor Compressor;
@@ -42,7 +42,8 @@ public class Robot extends SampleRobot {
     public Robot() {
         myRobot = new RobotDrive(0, 1);
         myRobot.setExpiration(0.1);
-        stick = new Joystick(0);
+        driveStick = new Joystick(0);
+        opStick = new Joystick(1);
         
         portMotor = new Talon(portMotorPWM);
         starMotor = new Talon(starMotorPWM);
@@ -98,15 +99,12 @@ public class Robot extends SampleRobot {
 			SmartDashboard.putBoolean("Arm Up?", armLimit.get());
 			SmartDashboard.putBoolean("Arm extended?", val);
 			
-        	myRobot.arcadeDrive(stick); // drive with arcade style (use right stick)
+        	myRobot.arcadeDrive(driveStick); // drive with arcade style (use right driveStick)
             
-        	if(stick.getTrigger())
-        	{
-        		armPortMotor.set(stick.getThrottle());
-        		armPortMotor.set(stick.getThrottle());
-        	}
+        	armPortMotor.set(opStick.getY());
+        	armPortMotor.set(opStick.getY());
         	
-        	if(stick.getRawButton(2))
+        	if(opStick.getTrigger())
         	{
         		if(!val)
         		{
