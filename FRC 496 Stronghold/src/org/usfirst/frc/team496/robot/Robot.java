@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Timer;
 //import edu.wpi.first.wpilibj.Ultrasonic;
 //import edu.wpi.first.wpilibj.interfaces.Gyro;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+//import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends SampleRobot {
@@ -81,8 +81,8 @@ public class Robot extends SampleRobot {
         while (isOperatorControl() && isEnabled()) {
         	SmartDashboard.putNumber("Voltage", pdp.getVoltage());
 			SmartDashboard.putNumber("Current", pdp.getTotalCurrent());
-			//SmartDashboard.putNumber("Arm Motor P", pdp.getCurrent(14));
-			//SmartDashboard.putNumber("Arm Motor S", pdp.getCurrent(15));
+			SmartDashboard.putNumber("Arm Motor P", pdp.getCurrent(15));
+			SmartDashboard.putNumber("Arm Motor S", pdp.getCurrent(12));//?
 			SmartDashboard.putBoolean("Arm Up?", armLimit.get());
 			SmartDashboard.putBoolean("Arm extended?", val);
 			
