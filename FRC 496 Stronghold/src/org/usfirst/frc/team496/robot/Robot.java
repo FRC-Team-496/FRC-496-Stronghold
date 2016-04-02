@@ -60,9 +60,10 @@ public class Robot extends SampleRobot {
 
     public void autonomous() {
     	compressor.stop();
-    	myRobot.drive(-.5, 0);
-    	Timer.delay(4.0);
-    	myRobot.drive(0, 0);
+    	myRobot.drive(-1, 0);
+    	Timer.delay(2.0);
+    	myRobot.drive(-.50, 0);
+    	Timer.delay(2.0);
     }
 
     public void operatorControl() {
@@ -85,7 +86,7 @@ public class Robot extends SampleRobot {
         	if(opStick.getTrigger())
         	{
         		shooter.set(1.0);
-        		shooter.set(-1.0);
+        		//shooter.set(-1.0);
 
         	}
             Timer.delay(0.005);		// wait for a motor update time
